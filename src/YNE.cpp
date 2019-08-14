@@ -12,7 +12,7 @@ void YNE::update() {
         return;
     }
 
-    if (strncmp(_receivedData, "/reg", 4) == 0) {
+    if ((_receivedData[_N - 6] == '/') && (_receivedData[_N - 5] == 'r') && (_receivedData[_N - 4] == 'e') && (_receivedData[_N - 3] == 'g')) {
         switch (_receivedData[_N - 2]) {
             case 0x64:
                 _RM64 = _receivedData[_N - 1];
@@ -33,8 +33,8 @@ void YNE::update() {
         Serial.write(_comp, 32);
     }
 
-    for (size_t kil = 1; kil < _N; ++kil) {
-        _receivedData[kil - 1] = _receivedData[kil];
+    for (size_t i = 1; i < _N; ++i) {
+        _receivedData[i - 1] = _receivedData[i];
     }
 }
 
@@ -43,14 +43,13 @@ int YNE::alpha() { return _RM64; }
 int YNE::heart() { return _RM66; }
 
 int YNE::muscle() {
-    int tmp;
+    int tmp = _RM67;
+
     if (_RM67 < 0) {
-        tmp = _RM67 + 256;
-    } else {
-        tmp = _RM67;
+        tmp += 256;
     }
 
-    return constrain(tmp, 0, 127);
+    return tmp;
 }
 
 int YNE::p300() { return _RM65; }
