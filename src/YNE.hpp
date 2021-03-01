@@ -2,14 +2,14 @@
 #define _YNE_H
 
 namespace YNE {
-    void begin();
-    void update();
+void begin();
+void update();
 
-    int alpha();
-    int beta();
-    int heart();
-    int muscle();
-    int p300();
-};
+int alpha();
+int beta();
+int heart();
+int muscle();
+int p300();
+};  // namespace YNE
 
 #endif

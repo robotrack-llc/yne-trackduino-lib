@@ -13,6 +13,7 @@ YNE	KEYWORD1	YNE device
 #######################################
 update  KEYWORD2
 alpha   KEYWORD2
+beta    KEYWORD2
 p300    KEYWORD2
 heart   KEYWORD2
 muscle  KEYWORD2
