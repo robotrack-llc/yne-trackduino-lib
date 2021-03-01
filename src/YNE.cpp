@@ -13,6 +13,7 @@ int _RM64 = 0;
 int _RM65 = 0;
 int _RM66 = 0;
 int _RM67 = 0;
+int _RM68 = 0;
 
 int signedToUnsigned(int number) {
     int tmp = number;
@@ -48,6 +49,9 @@ void update() {
             case 0x67:
                 _RM67 = _receivedData[_N - 1];
                 break;
+            case 0x68:
+                _RM68 = _receivedData[_N - 1];
+                break;
         }
     }
 
@@ -61,6 +65,8 @@ void update() {
 }
 
 int alpha() { return signedToUnsigned(_RM64); }
+
+int beta() { return signedToUnsigned(_RM68); }
 
 int heart() { return signedToUnsigned(_RM66); }
 

@@ -6,6 +6,7 @@ namespace YNE {
     void update();
 
     int alpha();
+    int beta();
     int heart();
     int muscle();
     int p300();
